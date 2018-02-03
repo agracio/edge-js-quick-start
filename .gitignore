@@ -1,6 +1,7 @@
-.idea/workspace.xml
+/**/.idea/workspace.xml
 node_modules/
 .vs/
 bin/
 obj/
 package-lock.json
+/src/.idea/.idea.QuickStart/.idea/workspace.xml

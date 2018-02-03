@@ -62,5 +62,5 @@ console.log();
 getPerson('', function(error, result) {
     if (error) throw error;
     console.log('QuickStart.Core.ExternalMethods.GetPersonInfo');
-    console.log(JSON.stringify(result));
+    console.log(result);
 });
