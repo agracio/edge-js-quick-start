@@ -4,7 +4,9 @@
   "description": "A minimal Edge.js application using `edge-js` with .NET Core",
   "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.js core",
+    "start:core": "node main.js core",
+    "start:standard": "node main.js standard"
   },
   "repository": "https://github.com/agracio/edge-js-quick-start",
   "keywords": [
@@ -17,6 +19,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "edge-js": "^9.3.5"
+    "edge-js": "^10.3.1"
   }
 }
