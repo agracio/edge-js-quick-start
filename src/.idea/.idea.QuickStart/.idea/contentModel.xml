@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\anton\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_QuickStart.-1089195259.00" t="ExcludeRecursive" />
-    <e p="C:\Users\anton\Dev\edge-js-quick-start\src" t="IncludeFlat">
+    <e p="C:\Users\antonasgraciovas\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\antonasgraciovas\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_QuickStart.-462737214.00" t="ExcludeRecursive" />
+    <e p="C:\Users\antonasgraciovas\Dev\edge-js-quick-start\src" t="IncludeFlat">
       <e p="ExternalLibrary" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="ExternalLibrary.csproj" t="IncludeRecursive" />
