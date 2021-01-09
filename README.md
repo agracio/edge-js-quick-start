@@ -1,4 +1,5 @@
-Quick start for `edge-js` https://github.com/agracio/edge-js
+Quick start for `edge-js`  
+https://github.com/agracio/edge-js
 ================
 # edge-js-quick-start
 
