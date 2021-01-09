@@ -1,3 +1,5 @@
+Quick start for `edge-js` https://github.com/agracio/edge-js
+================
 # edge-js-quick-start
 
 1. Install dependencies `npm install`
