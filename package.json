@@ -19,6 +19,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "edge-js": "^18.4.1"
+    "edge-js": "^19.3.0"
   }
 }
