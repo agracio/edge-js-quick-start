@@ -3,7 +3,7 @@ var version = process.argv[2];
 var namespace = 'QuickStart.' + version.charAt(0).toUpperCase() + version.substr(1);
 if(version === 'core') version = 'coreapp';
 
-const baseNetAppPath = path.join(__dirname, '/src/'+ namespace +'/bin/Debug/net'+ version +'2.0');
+const baseNetAppPath = path.join(__dirname, '/src/'+ namespace +'/bin/Debug/net'+ version +'3.1');
 
 process.env.EDGE_USE_CORECLR = 1;
 if(version !== 'standard')
@@ -34,11 +34,18 @@ var useDynamicInput = edge.func({
     methodName: 'UseDynamicInput'
 });
 
+var handleException = edge.func({
+    assemblyFile: baseDll,
+    typeName: localTypeName,
+    methodName: 'ThrowException'
+});
+
 var getPerson = edge.func({
     assemblyFile: baseDll,
     typeName: externalTypeName,
     methodName: 'GetPersonInfo'
 });
+
 
 console.log('### Calling local methods from ' + namespace +'.dll')
 console.log();
@@ -64,6 +71,16 @@ useDynamicInput('Node.Js', function(error, result) {
 });
 
 console.log();
+console.log('### Handling exception');
+console.log();
+try{
+    handleException('', function(error, result) {
+    });
+}catch(e){
+    console.log('.NET Exception: ' + e.Message);
+}
+
+console.log();
 console.log('### Calling external library methods using '+ namespace +'.dll wrapper');
 console.log();
 getPerson('', function(error, result) {
@@ -71,3 +88,5 @@ getPerson('', function(error, result) {
     console.log(externalTypeName + '.GetPersonInfo');
     console.log(result);
 });
+
+
