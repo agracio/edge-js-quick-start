@@ -21,7 +21,7 @@ jobs:
         with:
           dotnet-version: '3.1.x' # SDK Version to use; x will use the latest version of the 3.1 channel
       - name: Install dependencies
-        run: npm i
+        run: npm i --verbose
       - name: Run Dotnet Build
         run: dotnet build src/QuickStart.sln
       - name: Run
