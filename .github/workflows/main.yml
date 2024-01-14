@@ -25,5 +25,7 @@ jobs:
         run: npm i
       - name: Run Dotnet Build
         run: dotnet build src/QuickStart.sln
-      - name: Run
+      - name: Run Core
         run: npm start
+      - name: Run Standard
+        run: npm run start:standard
