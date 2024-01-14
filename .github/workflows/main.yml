@@ -19,9 +19,9 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '3.1.x' # SDK Version to use; x will use the latest version of the 3.1 channel
+          dotnet-version: '7.0.x' # SDK Version to use; x will use the latest version of the 7.0 channel
       - name: Install dependencies
-        run: npm i --verbose
+        run: npm i
       - name: Run Dotnet Build
         run: dotnet build src/QuickStart.sln
       - name: Run
