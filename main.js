@@ -2,7 +2,7 @@ const path = require('path');
 var net = process.argv[2];
 var namespace = 'QuickStart.' + net.charAt(0).toUpperCase() + net.substr(1);
 if(net === 'core' || net === 'fsharp') net = '';
-var version = net == 'standard' ? '2.1' : '7.0'
+var version = net == 'standard' ? '2.0' : '7.0'
 
 const baseNetAppPath = path.join(__dirname, '/src/'+ namespace +'/bin/Debug/net'+ net + version);
 
@@ -13,6 +13,11 @@ if(net !== 'standard')
 var edge = require('edge-js');
 
 var baseDll = path.join(baseNetAppPath, namespace + '.dll');
+
+console.log('### Application base path: '+ baseNetAppPath);
+console.log('### Application dll: '+ baseDll);
+console.log();
+console.log();
 
 var localTypeName = namespace + '.LocalMethods';
 var externalTypeName = namespace + '.ExternalMethods';
