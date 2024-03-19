@@ -12,12 +12,15 @@
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Edge.js.CSharp">
+      <HintPath>..\..\node_modules\edge-js\lib\bootstrap\bin\Release\netcoreapp3.1\Edge.js.CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="EdgeJs">
-      <HintPath>..\..\node_modules\edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\EdgeJs.dll</HintPath>
+      <HintPath>..\..\node_modules\edge-js\lib\bootstrap\bin\Release\netcoreapp3.1\EdgeJs.dll</HintPath>
       <Private>true</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ExternlaLibrary.Standard\ExternlaLibrary.Standard.csproj" />
+    <ProjectReference Include="..\ExternalLibrary\ExternalLibrary.csproj" />
   </ItemGroup>
 </Project>

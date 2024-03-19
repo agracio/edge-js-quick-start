@@ -1,7 +1,7 @@
 const path = require('path');
 var net = process.argv[2];
 var namespace = 'QuickStart.' + net.charAt(0).toUpperCase() + net.substr(1);
-if(net === 'core' || net === 'fsharp') net = '';
+if(net === 'core') net = '';
 var version = net == 'standard' ? '2.0' : '7.0'
 
 const baseNetAppPath = path.join(__dirname, '/src/'+ namespace +'/bin/Debug/net'+ net + version);
@@ -52,7 +52,37 @@ var getPerson = edge.func({
     methodName: 'GetPersonInfo'
 });
 
+var getItem = edge.func({
+    source: function () {/* 
+        using System.Threading.Tasks;
 
+            public class Person
+            {
+                public string Name = "Peter Smith";
+                public string Email = "peter.smith@electron-quick-start.com";
+                public int Age = 35;
+            }
+
+            public class Startup
+            {
+                public async Task<object> Invoke(dynamic input)
+                {
+                    Person person = new Person();
+                    return person;
+                }
+            }  
+    */}
+});
+
+console.log('### Calling inline c# code')
+console.log();
+getItem('', function(error, result) {
+    if (error) throw error;
+    console.log(result);
+    console.log();
+});
+
+console.log();
 console.log('### Calling local methods from ' + namespace +'.dll')
 console.log();
 getAppDomainDirectory('', function(error, result) {

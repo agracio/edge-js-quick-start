@@ -14,9 +14,13 @@
   <ItemGroup>
     <ProjectReference Include="..\ExternalLibrary\ExternalLibrary.csproj" />
   </ItemGroup>
+  
   <ItemGroup>
+    <Reference Include="Edge.js.CSharp">
+      <HintPath>..\..\node_modules\edge-js\lib\bootstrap\bin\Release\netcoreapp3.1\Edge.js.CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="EdgeJs">
-      <HintPath>..\..\node_modules\edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\EdgeJs.dll</HintPath>
+      <HintPath>..\..\node_modules\edge-js\lib\bootstrap\bin\Release\netcoreapp3.1\EdgeJs.dll</HintPath>
       <Private>true</Private>
     </Reference>
   </ItemGroup>
