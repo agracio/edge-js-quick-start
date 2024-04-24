@@ -112,7 +112,7 @@ useDynamicInput('Node.Js', function(error, result) {
     console.log();
 });
 
-if(!process.platform === 'linux'){
+if(process.platform !== 'linux'){
     listCertificates({ storeName: 'My', storeLocation: 'LocalMachine' }, function(error, result) {
         if (error) throw error;
         console.log(localTypeName + '.ListCertificates');
