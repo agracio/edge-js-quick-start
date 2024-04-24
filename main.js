@@ -19,8 +19,8 @@ console.log('### Application dll: '+ baseDll);
 console.log();
 console.log();
 
-var localTypeName = namespace + '.LocalMethods';
-var externalTypeName = namespace + '.ExternalMethods';
+var localTypeName = 'QuickStart.LocalMethods';
+var externalTypeName = 'QuickStart.ExternalMethods';
 
 var getAppDomainDirectory = edge.func({
     assemblyFile: baseDll,
@@ -50,6 +50,12 @@ var getPerson = edge.func({
     assemblyFile: baseDll,
     typeName: externalTypeName,
     methodName: 'GetPersonInfo'
+});
+
+var listCertificates = edge.func({
+    assemblyFile: baseDll,
+    typeName: localTypeName,
+    methodName: 'ListCertificates'
 });
 
 var getItem = edge.func({
@@ -105,6 +111,14 @@ useDynamicInput('Node.Js', function(error, result) {
     console.log(result);
     console.log();
 });
+
+listCertificates({ storeName: 'My', storeLocation: 'LocalMachine' }, function(error, result) {
+    if (error) throw error;
+    console.log(localTypeName + '.ListCertificates');
+    console.log(result);
+    console.log();
+});
+
 
 console.log();
 console.log('### Handling exception');

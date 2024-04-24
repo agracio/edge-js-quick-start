@@ -21,4 +21,13 @@
       <Private>true</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\shared\ExternalLibarary.cs">
+      <Link>ExternalLibarary.cs</Link>
+    </Compile>
+    <Compile Include="..\shared\LocalMethods.cs">
+      <Link>LocalMethods.cs</Link>
+    </Compile>
+  </ItemGroup>
+
 </Project>
