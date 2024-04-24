@@ -58,35 +58,43 @@ var listCertificates = edge.func({
     methodName: 'ListCertificates'
 });
 
-var getItem = edge.func({
+var getInlinePerson = edge.func({
     source: function () {/* 
         using System.Threading.Tasks;
 
             public class Person
             {
-                public string Name = "Peter Smith";
-                public string Email = "peter.smith@electron-quick-start.com";
-                public int Age = 35;
+                public Person(string name, string email, int age)
+                {
+                    Name = name;
+                    Email = email;
+                    Age = age;
+                }
+                public string Name {get;set;}
+                public string Email {get;set;}
+                public int Age {get;set;}
             }
 
             public class Startup
             {
                 public async Task<object> Invoke(dynamic input)
                 {
-                    Person person = new Person();
+                    Person person = new Person(input.name, input.email, input.age);
                     return person;
                 }
             }  
     */}
 });
 
-console.log('### Calling inline c# code')
+
+console.log('### Calling inline c# code with multiple parameters')
 console.log();
-getItem('', function(error, result) {
+getInlinePerson({name: 'Peter Smith', email: 'peter.smith@edge-js-quick-start.com', age: 30}, function(error, result) {
     if (error) throw error;
     console.log(result);
     console.log();
 });
+
 
 console.log();
 console.log('### Calling local methods from ' + namespace +'.dll')
