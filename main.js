@@ -1,6 +1,7 @@
 const path = require('path');
 var net = process.argv[2];
-var namespace = 'QuickStart.' + net.charAt(0).toUpperCase() + net.substr(1);
+var framework = net.charAt(0).toUpperCase() + net.substr(1);
+var namespace = 'QuickStart.' + framework;
 if(net === 'core') net = '';
 var version = net == 'standard' ? '2.0' : '7.0'
 
@@ -61,28 +62,30 @@ var listCertificates = edge.func({
 var getInlinePerson = edge.func({
     source: function () {/* 
         using System.Threading.Tasks;
+        using System;
 
-            public class Person
+        public class Person
+        {
+            public Person(string name, string email, int age)
             {
-                public Person(string name, string email, int age)
-                {
-                    Name = name;
-                    Email = email;
-                    Age = age;
-                }
-                public string Name {get;set;}
-                public string Email {get;set;}
-                public int Age {get;set;}
+                Id =  Guid.NewGuid();
+                Name = name;
+                Email = email;
+                Age = age;
             }
+            public Guid Id {get;}
+            public string Name {get;set;}
+            public string Email {get;set;}
+            public int Age {get;set;}
+        }
 
-            public class Startup
+        public class Startup
+        {
+            public async Task<object> Invoke(dynamic input)
             {
-                public async Task<object> Invoke(dynamic input)
-                {
-                    Person person = new Person(input.name, input.email, input.age);
-                    return person;
-                }
-            }  
+                return new Person(input.name, input.email, input.age);
+            }
+        }
     */}
 });
 
@@ -113,7 +116,7 @@ getCurrentTime('', function(error, result) {
     console.log();
 });
 
-useDynamicInput('Node.Js', function(error, result) {
+useDynamicInput({framework: framework, node: 'Node.Js'}, function(error, result) {
     if (error) throw error;
     console.log(localTypeName + '.UseDynamicInput');
     console.log(result);
@@ -142,7 +145,7 @@ try{
 console.log();
 console.log('### Calling external library methods using '+ namespace +'.dll wrapper');
 console.log();
-getPerson('', function(error, result) {
+getPerson({name: 'John Smith', email: 'john.smith@edge-js-quick-start.com', age: 35}, function(error, result) {
     if (error) throw error;
     console.log(externalTypeName + '.GetPersonInfo');
     console.log(result);
