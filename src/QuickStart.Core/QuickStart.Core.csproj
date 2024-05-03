@@ -14,13 +14,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ExternalLibrary\ExternalLibrary.csproj" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <Reference Include="EdgeJs">
-      <HintPath>..\..\node_modules\edge-js\lib\bootstrap\bin\Release\net6.0\EdgeJs.dll</HintPath>
-      <Private>true</Private>
-    </Reference>
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="..\shared\ExternalLibarary.cs">
       <Link>ExternalLibarary.cs</Link>
@@ -28,6 +21,11 @@
     <Compile Include="..\shared\LocalMethods.cs">
       <Link>LocalMethods.cs</Link>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EdgeJs">
+      <HintPath>..\..\node_modules\edge-js\lib\bootstrap\bin\Release\EdgeJs.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
