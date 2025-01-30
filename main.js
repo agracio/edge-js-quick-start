@@ -132,14 +132,16 @@ if(process.platform !== 'linux'){
     });
 }
 
-console.log();
-console.log('### Handling exception');
-console.log();
-try{
-    handleException('', function(error, result) {
-    });
-}catch(e){
-    console.log('.NET Exception: ' + e.Message);
+if(net !== 'standard'){
+    console.log();
+    console.log('### Handling exception');
+    console.log();
+    try{
+        handleException('', function(error, result) {
+        });
+    }catch(e){
+        console.log('.NET Exception: ' + e.Message);
+    }
 }
 
 console.log();
