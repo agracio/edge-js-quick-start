@@ -54,6 +54,12 @@ var getPerson = edge.func({
     methodName: 'GetPersonInfo'
 });
 
+var runEuler = edge.func({
+    assemblyFile: baseDll,
+    typeName: externalTypeName,
+    methodName: 'RunEuler'
+});
+
 var listCertificates = edge.func({
     assemblyFile: baseDll,
     typeName: localTypeName,
@@ -89,7 +95,6 @@ var getInlinePerson = edge.func({
         }
     */}
 });
-
 
 console.log('### Calling inline c# code with multiple parameters')
 console.log();
@@ -145,12 +150,19 @@ if(net !== 'standard'){
 }
 
 console.log();
-console.log('### Calling external library methods using '+ namespace +'.dll wrapper');
+console.log('### Calling external library methods using '+ namespace +'.dll wrapper')
 console.log();
+
 getPerson({name: 'John Smith', email: 'john.smith@edge-js-quick-start.com', age: 35}, function(error, result) {
     if (error) throw error;
     console.log(externalTypeName + '.GetPersonInfo');
     console.log(result);
+    console.log();
 });
 
-
+runEuler('', function(error, result) {
+    if (error) throw error;
+    console.log(externalTypeName + '.RunEuler');
+    console.log(result);
+    console.log();
+});
