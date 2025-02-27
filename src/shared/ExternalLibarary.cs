@@ -12,7 +12,7 @@ namespace QuickStart
         
         public async Task<object> RunEuler(dynamic input)
         {
-            return await Task.Run(() => new Euler().Main().ToString());
+            return await Task.Run(() => new Euler().Main());
         }
     }
 }
