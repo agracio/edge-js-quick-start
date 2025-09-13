@@ -7,32 +7,36 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, macos-14, ubuntu-latest, windows-latest]
+        os: [macos-13, macos-15, ubuntu-24.04, ubuntu-22.04-arm, windows-2025, windows-11-arm]
       fail-fast: false
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        
       - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: '22.x'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
       - name: Setup dotnet
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x' # SDK Version to use; x will use the latest version of the 8.0 channel
+
       - name: Versions
         run: node -v && npm -v && dotnet --version && node -p process.platform && node -p process.arch
-      - if: runner.os == 'macOS'
-        name: Remove Mono from macOS
-        run: |
-          sudo rm -rf /Library/Frameworks/Mono.framework
-          sudo pkgutil --forget com.xamarin.mono-MDK.pkg
-          sudo rm /etc/paths.d/mono-commands
+
       - name: Install dependencies
         run: npm i
+
       - name: Run Dotnet Build
         run: dotnet build src/QuickStart.sln
+
       - name: Run Core
         run: npm start
+
       - name: Run Standard
         run: npm run start:standard
+
